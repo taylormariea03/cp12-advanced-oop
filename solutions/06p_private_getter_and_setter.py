@@ -54,7 +54,6 @@ james_member = LibraryMember("James")
 # james_member.checked_out_books.append(book_2)
 # james_member.checked_out_books.append(book_3)
 # james_member.checked_out_books.append(book_4) 
-
 # 1. CONTINUED
 # Notice that `james_member` is adding 4 books to his list, but the logic in
 # check_out_book states that there should be a limit of 2 books. How can you

@@ -73,7 +73,7 @@ scrooge = Account("Scrooge McDuck", 100_000_000)
 
 # 1.2 MAKING A VARIABLE PRIVATE
 # Add two underscores to the beginning of the `balance` variable in the Account
-# class. Now try to change the `__balance` variable through the `scrooge`
+# class. Now try to access the `__balance` variable through the `scrooge`
 # object. What happens?
 # Try setting a break point and hover over the `scrooge` variable and see
 # what happened to the `__balance` variable when you made it private.
