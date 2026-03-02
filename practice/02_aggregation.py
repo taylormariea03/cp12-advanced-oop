@@ -35,6 +35,30 @@ book_2 = Book("Brave New World", "Aldous Huxley")
 book_3 = Book("The Great Gatsby", "F. Scott Fitzgerald")
 book_4 = Book("To Kill a Mockingbird", "Harper Lee")
 
+class LibraryMember:
+    def __init__(self, name):
+        self.name = name
+        self.list_checked_out_books = []
+    def check_out_book(self, book):
+        limit = 2
+        if len(self.checked_out_books) >= limit:
+            print(f"{self.name} cannot check out more than {limit} books.")
+        elif book.is_available is False:
+            print(f"The book '{book.title}' is currently not available.")
+        else:
+            book.is_available = False
+            self.checked_out_books.append(book)
+            print(f"{self.name} has checked out '{book.title}'. They now have {len(self.checked_out_books)} book(s) checked out.")
+
+lm_1 = LibraryMember("Jim")
+lm_2 = LibraryMember("Pam")
+
+lm_1.list_checked_out_books.append(book_2)
+lm_1.list_checked_out_books.append(book_4)
+
+print(lm_1.list_checked_out_books[1].title)
+
+
 
 # PART 2: DEFINE THE LIBRARYMEMBER CLASS
 # Define a LibraryMember class. For now, just make it have instance variables
