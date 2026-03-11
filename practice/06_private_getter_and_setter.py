@@ -15,8 +15,21 @@ a new value for a private variable (called a setter).
 '''
 
 class User:
-    def __init__(self, user_id):
-        self.id = None
+    def __init__(self, user_id: str):
+        self.__id = None #id is a private variable
+        self.set_id(user_id)
+    
+    def get_id(self):
+        return self.__id
+    
+    def set_id(self, user_id):
+        if not isinstance(user_id, str) or len(user_id) != 8:
+            raise ValueError('ID does not meet requirements')
+        self.__id = user_id
+    
+user_obj = User("12345678")
+
+print(user_obj.get_id())
 
 # 1. ADDING A GETTER AND A SETTER
 # Make the id instance variable private. Then create a method called "get_id"

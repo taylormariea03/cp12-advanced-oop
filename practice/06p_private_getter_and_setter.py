@@ -48,10 +48,14 @@ book_4 = Book("War and Peace", "Leo Tolstoy")
 james_member = LibraryMember("James")
 
 # this member is checking out 4 books when the limit should be 2
-james_member.checked_out_books.append(book_1)
-james_member.checked_out_books.append(book_2)
-james_member.checked_out_books.append(book_3)
-james_member.checked_out_books.append(book_4) 
+# james_member.checked_out_books.append(book_1)
+# james_member.checked_out_books.append(book_2)
+# james_member.checked_out_books.append(book_3)
+# james_member.checked_out_books.append(book_4) 
+
+james_member.check_out_book(book_1)
+james_member.check_out_book(book_2)
+james_member.check_out_book(book_3)
 
 # 1. CONTINUED
 # Notice that `james_member` is adding 4 books to his list, but the logic in

@@ -78,7 +78,26 @@ specific type of Employee.
 #               20k is given, limit the raise amount to just 20k
 #     
 # Create an employee object, and run get_status and give_raise
+class Employee: # class name is Employee
+    companyName = "Python Co." # class variable
 
+    def __init__(self, name, salary): # constructor
+        self.name = name # instance variables
+        self.salary = salary
+
+    def get_status(self):
+        return f"{self.name} has a salary of ${self.salary}"
+    
+    def give_raise(self, raise_amount):
+        if raise_amount >= 20_000:
+            self.salary += 20_000
+        else:
+            self.salary += raise_amount
+
+pam = Employee("pam", 70_000)
+print(pam.get_status())
+pam.give_raise(10_000)
+print(pam.get_status())
 
 
 # PART 2.1: DEFINE A MANAGER CLASS
@@ -94,6 +113,29 @@ when syntactically you are required to have a line of code after a colon
 such as after defining a class name, after an if statement, etc. But you don't
 want to write that piece of code yet.
 '''
+class Manager(Employee): #inherits everything from employee, extends capability of class
+    def give_praise(self, otherEmployeeObject):
+        return f"Wow {otherEmployeeObject.name}, you're doing awesome!!!"
+    
+    def give_raise(self, amount):
+        # Override the give_raise method to include a bonus
+        bonus *= 1.1
+        # strategy 1: just write out new logic:
+        # if amount < 20_000:
+        #     self.salary += amount
+        # else:
+        #     self.salary += 20_000
+        
+        # strategy 2: use super()
+        new_amount = amount + amount * bonus
+        super().give_raise(new_amount)
+
+    pass #does nothing
+
+micheal = Manager("micheal", 150_000)
+print(micheal.get_status())
+micheal.give_raise(15_000)
+print(micheal.get_status())
 
 
 

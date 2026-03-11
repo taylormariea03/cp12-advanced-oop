@@ -50,19 +50,25 @@ class Account:
 
     def __init__(self, account_holder, balance = 0):
         self.account_holder = account_holder 
-        self.balance = balance
+        self.__balance = balance
 
         Account.total_money = Account.total_money + balance
 
     def deposit_or_withdraw(self, amount):
-        self.balance = self.balance + amount
+        self.__balance = self.__balance + amount
 
         Account.total_money = Account.total_money + amount
 
     def display_balance(self):
-        print(f"Account holder: {self.account_holder} has a current balance of: {self.balance}")
+        print(f"Account holder: {self.account_holder} has a current balance of: {self.__balance}")
 
 scrooge = Account("Scrooge McDuck", 100_000_000)
+
+scrooge.display_balance()
+scrooge.deposit_or_withdraw(-1)
+scrooge.display_balance()
+
+print(scrooge.__balance)
 
 # 1.1 DIRECTLY CHANGE A VARIABLE
 # Using the provided Account object below, try to directly change Scrooge's
@@ -82,6 +88,7 @@ scrooge = Account("Scrooge McDuck", 100_000_000)
 
 
 '''
+
 WHY MAKE SOMETHING PRIVATE?
 ---------------------------
 Often, you have logic that needs to be followed when you are changing a value,
